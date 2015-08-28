@@ -17,6 +17,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 */
+
+//Route::model('song', 'App\Song');
+
 Route::get('/', 'PageController@index');
 Route::get('about', 'PageController@about');
 Route::get('demo', 'PageController@demo');
+
+Route::get('songs', 'SongsController@index');
+Route::get('songs/{slug}', 'SongsController@show');
+Route::get('songs/{slug}/edit', 'SongsController@edit');
