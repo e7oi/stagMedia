@@ -37,10 +37,10 @@
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="/">Home</a></li>
-                    <li><a href="/about">About</a></li>
-                    <li><a href="/demo">Demo</a></li>
-                    <li><a href="/songs">Songs</a></li>
+                    <li class="active"><a href="{{route('home.page')}}">Home</a></li>
+                    <li><a href="{{route('about.page')}}">About</a></li>
+                    <li><a href="{{route('demo.page')}}">Demo</a></li>
+                    <li><a href="{{route('song.index')}}">Songs</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
                         <ul class="dropdown-menu">

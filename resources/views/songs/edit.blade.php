@@ -3,9 +3,14 @@
 @section('content')
     <div class="content">
         <div class="title">Edit "{{ $song->title  }}"</div>
-        <div class="sub-title"><img data-src="holder.js/32x32" class="img-thumbnail" alt="{{ $song->artist }}"> {{ $song->artist }}</div>
-        <div style="border: 1px solid grey;">
-            {{ $song->lyrics }}
-        </div>
+
+        {!! Form::model($song, ['route' => ['song.patch', $song->slug], 'method' => 'PATCH']) !!}
+
+        @include('songs._form')
+
+        {!! Form::close() !!}
+
+        {!! delete_form(['song.destroy', $song->slug]) !!}
+
     </div>
 @stop

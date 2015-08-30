@@ -18,12 +18,22 @@ Route::get('/', function () {
 });
 */
 
-//Route::model('song', 'App\Song');
+//Route::bind('song', function($slug)
+//{
+//    return App\Song::whereSlug($slug)->first();
+//});
 
-Route::get('/', 'PageController@index');
-Route::get('about', 'PageController@about');
-Route::get('demo', 'PageController@demo');
+get('/', ['as' => 'home.page', 'uses' => 'PageController@index']);
+get('about', ['as' => 'about.page', 'uses' => 'PageController@about']);
+get('demo', ['as' => 'demo.page', 'uses' => 'PageController@demo']);
 
-Route::get('songs', 'SongsController@index');
-Route::get('songs/{slug}', 'SongsController@show');
-Route::get('songs/{slug}/edit', 'SongsController@edit');
+get('music', ['as' => 'song.index', 'uses' => 'SongsController@index']);
+get('music/{slug}/view', ['as' => 'song.show', 'uses' => 'SongsController@show']);
+get('music/{slug}/edit', ['as' => 'song.edit', 'uses' => 'SongsController@edit']);
+patch('music/{slug}', ['as' => 'song.patch','uses' => 'SongsController@update']);
+get('music/create', ['as' => 'song.create','uses' => 'SongsController@create']);
+post('music/store', ['as' => 'song.store','uses' => 'SongsController@store']);
+delete('music/{slug}', ['as' => 'song.destroy','uses' => 'SongsController@destroy']);
+
+//$router->resource('songs', 'SongsController');
+$router->resource('people', 'PeopleController');

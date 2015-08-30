@@ -2,9 +2,7 @@
 
 @section('content')
     <div class="content">
-        <div class="title">ELaravel 5</div>
-        <div>
-            Welcome to StagMedia!
-        </div>
+        <div class="title">Welcome to StagMedia!</div>
+        <div>a Laravel 5 project</div>
     </div>
 @stop
